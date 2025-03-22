@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VitAI - StarMind</title>
+  <!-- Importa fonte moderna do Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* Reset e layout base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      flex-direction: column;
+      background-color: #f5f5f5;
+    }
+    /* Cabeçalho Global */
+    .page-header {
+      background-color: #3f51b5;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 1.8em;
+    }
+    /* Área principal (App) */
+    .chat-app {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+    }
+    .chat-container {
+      background-color: #fff;
+      width: 100%;
+      max-width: 600px;
+      height: 100%;
+      max-height: 80vh;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    /* Corpo do Chat */
+    .chat-body {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      background: #fafafa;
+    }
+    .message {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: flex-start;
+      animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .message.user .message-content {
+      background-color: #3f51b5;
+      color: #fff;
+      margin-left: auto;
+      border-radius: 20px 20px 0 20px;
+    }
+    .message.agent .message-content {
+      background-color: #e0e0e0;
+      color: #000;
+      margin-right: auto;
+      border-radius: 20px 20px 20px 0;
+    }
+    .message-content {
+      padding: 10px 15px;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+    /* Rodapé do Chat (botões e indicadores) */
+    .chat-footer {
+      padding: 10px;
+      background-color: #ddd;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border-top: 1px solid #ccc;
+    }
+    .chat-footer button {
+      background-color: #3f51b5;
+      border: none;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+    .chat-footer button:hover {
+      background-color: #303f9f;
+    }
+    .chat-footer button i {
+      margin-right: 5px;
+    }
+    .status-indicators {
+      padding: 10px 15px;
+      background-color: #f0f0f0;
+      border-top: 1px solid #ccc;
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+    }
+    /* Rodapé Global */
+    .page-footer {
+      background-color: #3f51b5;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+    .page-footer a {
+      color: #ffc107;
+      text-decoration: none;
+    }
+    .page-footer a:hover {
+      text-decoration: underline;
+    }
+    /* Responsividade */
+    @media (max-width: 600px) {
+      .chat-container {
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabeçalho Global -->
+  <header class="page-header">
+    <h1>Atendimento StarMind</h1>
+  </header>
+
+  <!-- Área Principal (Chat) -->
+  <main class="chat-app">
+    <div class="chat-container">
+      <div class="chat-body" id="chatBody">
+        <!-- As mensagens serão inseridas aqui -->
+      </div>
+      <div class="chat-footer">
+        <button id="stopButton"><i class="fas fa-stop"></i> Parar</button>
+        <button id="showHistoryButton"><i class="fas fa-history"></i> Histórico</button>
+        <button id="saveHistoryButton"><i class="fas fa-download"></i> Salvar</button>
+      </div>
+      <div class="status-indicators">
+        <p>Status: <span id="connectionStatus">Desconectado</span></p>
+        <p>Agente está <span id="agentStatus">Ouvindo</span></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Rodapé Global -->
+  <footer class="page-footer">
+    <p>@2025, StarMind</p>
+    <p>
+      <a href="https://asgard.zapier.app" target="_blank" rel="noopener">Contato</a> | 
+      <a href="https://privacy.weliveai.io" target="_blank" rel="noopener">Política de Privacidade</a>
+    </p>
+  </footer>
+
+  <script type="module" src="/script.js"></script>
+</body>
+</html>
