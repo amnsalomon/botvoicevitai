@@ -1,0 +1,17 @@
+{
+  "name": "elevenlabs-conversational-ai",
+  "version": "1.0.0",
+  "scripts": {
+    "dev:frontend": "vite",
+    "build": "vite build",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@11labs/client": "^x.x.x",
+    "express": "^4.x",
+    "font-awesome": "^x.x.x" 
+  },
+  "devDependencies": {
+    "vite": "^x.x.x"
+  }
+}
