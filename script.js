@@ -82,7 +82,7 @@ async function startConversation() {
     await navigator.mediaDevices.getUserMedia({ audio: true });
 
     conversation = await Conversation.startSession({
-      agentId: 'fv2GDhW2drnXxI209xyt',
+      agentId: 'x6XCWUbaCiEfgjNKfnCW',
       onConnect: () => {
         connectionStatus.textContent = 'Conectado';
         displayMessage('Conexão estabelecida com o agente.', 'agent');
